@@ -1,0 +1,133 @@
+	
+
+    print("Do you want lua or control mode?")
+    local choice = io.read()
+    if choice == "control" then
+     print("Which turtle?")
+     local turtle = io.read()
+     if turtle == 1 then
+     while true do
+       local event = {os.pullEvent()}
+       if event[1] == "key" then
+        if event[2] == keys.w then
+          peripheral.find("modem").transmit(4872,5572,"turtle.forward()")
+        end
+        if event[2] == keys.a then
+          peripheral.find("modem").transmit(4872,5572,"turtle.turnLeft()")
+        end
+        if event[2] == keys.d then
+          peripheral.find("modem").transmit(4872,5572,"turtle.turnRight()")
+        end
+        if event[2] == keys.s then
+          peripheral.find("modem").transmit(4872,5572,"turtle.back()")
+        end
+        if event[2] == keys.up then
+          peripheral.find("modem").transmit(4872,5572,"turtle.up()")
+        end
+        if event[2] == keys.down then
+          peripheral.find("modem").transmit(4872,5572,"turtle.down()")
+        end
+        if event[2] == keys.e then
+          return
+        end
+        if event[2] == keys.one then
+          peripheral.find("modem").transmit(4872,5572,"turtle.select(1)")
+        end
+        if event[2] == keys.two then
+          peripheral.find("modem").transmit(4872,5572,"turtle.select(2)")
+        end
+        if event[2] == keys.r then
+          peripheral.find("modem").transmit(4872,5572,"turtle.digDown()")
+        end
+        if event[2] == keys.t then
+          peripheral.find("modem").transmit(4872,5572,"turtle.digUp()")
+        end
+        if event[2] == keys.p then
+          peripheral.find("modem").transmit(4872,5572,"turtle.placeDown()")
+        end
+        if event[2] == keys.c then
+          peripheral.find("modem").transmit(4872,5572,"turtle.placeUp()")
+        end
+       elseif event[1] == "mouse_click" then
+         if event[2] == 1 then
+           peripheral.find("modem").transmit(4872,5572,"turtle.dig()")
+         end
+         if event[2] == 2 then
+           peripheral.find("modem").transmit(4872,5572,"turtle.place()")
+         end
+      end
+    end
+    elseif turtle == 2 then
+      while true do
+        local event = {os.pullEvent()}
+        if event[2] == keys.w then
+          peripheral.find("modem").transmit(4972,5672,"turtle.forward()")
+        end
+        if event[2] == keys.a then
+          peripheral.find("modem").transmit(4972,5672,"turtle.turnLeft()")
+        end
+        if event[2] == keys.s then
+          peripheral.find("modem").transmit(4972,5672,"turtle.back()")
+        end
+        if event[2] == keys.d then
+          peripheral.find("modem").transmit(4972,5672,"turtle.turnRight()")
+        end
+        if event[2] == keys.up then
+          peripheral.find("modem").transmit(4972,5672,"turtle.up()")
+        end
+        if event[2] == keys.down then
+          peripheral.find("modem").transmit(4972,5672,"turtle.down()")
+        end
+        if event[2] == keys.one then
+          peripheral.find("modem").transmit(4972,5672,"turtle.select(1)")
+        end
+        if event[2] == keys.two then
+          peripheral.find("modem").transmit(4972,5672,"turtle.select(2)")
+        end
+        if event[2] == keys.r then
+          peripheral.find("modem").transmit(4972,5672,"turtle.digDown()")
+        end
+        if event[2] == keys.t then
+          peripheral.find("modem").transmit(4972,5672,"turtle.digUp()")
+        end
+        if event[2] == keys.e then
+          return
+        end
+        if event[2] == keys.p then
+          peripheral.find("modem").transmit(4972,5672,"turtle.placeDown()")
+        end
+        if event[2] == keys.c then
+          peripheral.find("modem").transmit(4972,5672,"turtle.placeUp()")
+        end
+    end
+    if event[1] == "mouse_click" then
+      if event[2] == 1 then
+        peripheral.find("modem").transmit(4972,5672,"turtle.dig()")
+      end
+      if event[2] == 2 then
+        peripheral.find("modem").transmit(4972,5672,"turtle.place()")
+      end
+    end
+    end
+    elseif choice == "lua" then
+      print("Which turtle?")
+      local turtle2 = io.read()
+      if turtle2 == 1 then
+        while true do
+          local event = {os.pullEvent()}
+          peripheral.find("modem").transmit(4872,5572,read())
+          if event[1] == "key" and event[2] == keys.e then
+            return
+          end
+        end
+      elseif turtle2 == 2 then
+        while true do
+          local event = {os.pullEvent()}
+          peripheral.find("modem").transmit(4972,5672,read())
+          if event[1] == "key" and event[2] == keys.e then
+            return
+          end
+        end
+      end
+    end
+
